@@ -21,14 +21,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  create_env_file_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create .env file
-        uses: ozaytsev86/create-env-file@v1
-        with:
-          INPUT_ENV_VITE_WEATHER_API_KEY: ${{ secrets.VITE_WEATHER_API_KEY }}
-          INPUT_ENV_VITE_GOOGLE_MAP_API_KEY: ${{ secrets.VITE_GOOGLE_MAP_API_KEY }}
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -47,6 +39,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        env:
+          INPUT_ENV_VITE_WEATHER_API_KEY: ${{ secrets.VITE_WEATHER_API_KEY }}
+          INPUT_ENV_VITE_GOOGLE_MAP_API_KEY: ${{ secrets.VITE_GOOGLE_MAP_API_KEY }}
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
