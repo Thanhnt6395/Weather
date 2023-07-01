@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/Weather/',
     component: DefaultLayout,
     children: [
       {
@@ -17,7 +17,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/Weather/'),
   routes,
 })
 

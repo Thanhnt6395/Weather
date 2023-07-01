@@ -18,13 +18,11 @@
 </template>
 
 <script setup>
-import { onUpdated, ref, watch } from "vue";
 import store from "../store";
 
 
 function search(event) {
   let value = event.target.value
-  console.log({value})
   store.dispatch('getCoordinateByAddress', value)
 }
 
