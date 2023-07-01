@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 
 const routes = [
   {
-    path: '/Weather/',
+    path: '/',
     component: DefaultLayout,
     children: [
       {
